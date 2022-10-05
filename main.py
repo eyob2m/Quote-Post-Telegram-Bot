@@ -11,6 +11,20 @@ url = requests.get('https://story-shack-cdn-v2.glitch.me/generators/quote-genera
 
 e = url.json()
 j = e['data']['name']
-
+#def post():
 bot.send_message(channel,j)
+
+
+
+def p1():
+    schedule.every(30).minutes.until("19:00").do(post)
+
+schedule.every().day.at("04:00").do(p1)
+
+while True:
+    schedule.run_pending()
+    time.sleep(1) 
+
+  
+
    
