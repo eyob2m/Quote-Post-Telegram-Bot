@@ -12,7 +12,7 @@ url = requests.get('https://story-shack-cdn-v2.glitch.me/generators/quote-genera
 e = url.json()
 j = e['data']['name']
 #def post():
-bot.send_message(channel,j)
+bot.send_message(channel,j +'\n\U0001f31a | @Quotes_P30')
 
 
 
