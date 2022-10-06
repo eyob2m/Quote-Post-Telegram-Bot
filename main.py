@@ -16,14 +16,14 @@ bot.send_message(channel,j +'\n\U0001f31a | @Quotes_P30')
 
 
 
-def p1():
+'''def p1():
     schedule.every(30).minutes.until("19:00").do(post)
 
 schedule.every().day.at("04:00").do(p1)
 
 while True:
     schedule.run_pending()
-    time.sleep(1) 
+    time.sleep(1) '''
 
   
 
