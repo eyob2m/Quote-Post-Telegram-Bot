@@ -1,9 +1,10 @@
 from PIL import Image,ImageFont,ImageDraw
 image = Image.open("demo.jpg")
+import textwrap
 
-font = ImageFont.load_default()
+font = ImageFont.truetype("mine.TTF",60)
 draw = ImageDraw.Draw(image)
-
+fontlogo = ImageFont.truetype("mine.TTF",60)
 
 
 
@@ -19,17 +20,35 @@ channel = "@Quotes_P30"
 channel2 = "@eyobmekonneny"
 
 def post():
-  url = requests.get('https://story-shack-cdn-v2.glitch.me/generators/quote-generator')
+    url = requests.get('https://story-shack-cdn-v2.glitch.me/generators/quote-generator')
 
-  e = url.json()
+    e = url.json()
 
-  j = e['data']['name']
-  bot.send_message(channel,j +'\n\U0001f31a | @Quotes_P30')
+    j = e['data']['name']
+    logo = "Telegram \n @Quotes_P30"
+    text = str(j)
 
-  text = str(j)
-  draw.text((0,150), text,(0,0,10), font=font)
-  image.save("teddxnnnnt.png")
-  bot.send_photo(channel, image, caption=j) 
-
-
-post();
+    para = textwrap.wrap(j, width=15)
+    
+    MAX_W, MAX_H = 2000, 2000
+    image = Image.new('RGB', (MAX_W, MAX_H), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(image)
+    font = ImageFont.truetype("mine.TTF", 180)
+    
+    current_h, pad = 500, 10
+    for line in para:
+        w, h = draw.textsize(line, font=font)
+        draw.text(((MAX_W - w) / 2, current_h), line, font=font)
+        current_h += h + pad
+    
+    draw.text((1600,1800), logo,(255,255,255), font=fontlogo)
+    image.save("teddxnnnnt.png")
+    bot.send_photo(channel, image, caption=j + '\n\U0001f31a | @Quotes_P30') 
+    bot.send_photo(channel2, image, caption=j + '\n\U0001f31a | @Quotes_P30') 
+    
+def p1():
+    schedule.every(120).minutes.until("19:00").do(post)
+schedule.every().day.at("04:00").do(p1)
+while True:
+    schedule.run_pending()
+    time.sleep(1) 
