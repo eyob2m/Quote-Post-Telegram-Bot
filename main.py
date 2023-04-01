@@ -1,3 +1,10 @@
+from PIL import Image,ImageFont,ImageDraw
+image = Image.open("demo.jpg")
+
+font = ImageFont.load_default()
+draw = ImageDraw.Draw(image)
+
+
 
 
 import os
@@ -19,7 +26,10 @@ def post():
   j = e['data']['name']
   bot.send_message(channel,j +'\n\U0001f31a | @Quotes_P30')
 
-
+  text = str(j)
+  draw.text((0,150), text,(0,0,10), font=font)
+  image.save("teddxnnnnt.png")
+  bot.send_photo(channel, image, caption=j) 
 
 
 post();
