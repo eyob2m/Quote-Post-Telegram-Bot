@@ -1,3 +1,12 @@
+from PIL import Image,ImageFont,ImageDraw
+image = Image.open("demo.jpg")
+
+font = ImageFont.truetype("arial.ttf",24)
+draw = ImageDraw.Draw(image)
+
+
+
+
 import os
 from bs4 import BeautifulSoup
 import requests
@@ -16,12 +25,11 @@ def post():
 
   j = e['data']['name']
   bot.send_message(channel,j +'\n\U0001f31a | @Quotes_P30')
-  bot.send_message(channel2,j +'\n\U0001f31a | @Quotes_P30')
+
+  text = str(j)
+  draw.text((0,150), text,(0,0,10), font=font)
+  image.save("teddxnnnnt.png")
+  bot.send_photo(channel, image, caption=j) 
 
 
-def p1():
-    schedule.every(60).minutes.until("19:00").do(post)
-schedule.every().day.at("04:00").do(p1)
-while True:
-    schedule.run_pending()
-    time.sleep(1) 
+post();
