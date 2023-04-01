@@ -1,7 +1,7 @@
 from PIL import Image,ImageFont,ImageDraw
 image = Image.open("demo.jpg")
 
-font = ImageFont.truetype("arial.ttf",240)
+font = ImageFont.load_default()
 draw = ImageDraw.Draw(image)
 
 
