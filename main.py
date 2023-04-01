@@ -25,7 +25,7 @@ def post():
     e = url.json()
 
     j = e['data']['name']
-    logo = "Telegram \n @Quotes_P30"
+    logo = "Telegram \n @Quotes4_life"
     text = str(j)
 
     para = textwrap.wrap(j, width=15)
