@@ -2,7 +2,6 @@ from PIL import Image,ImageFont,ImageDraw
 image = Image.open("demo.jpg")
 import textwrap
 import random
-import api
 font = ImageFont.truetype("mine.TTF",60)
 draw = ImageDraw.Draw(image)
 fontlogo = ImageFont.truetype("mine.TTF",40)
@@ -15,7 +14,7 @@ import requests
 import telebot
 import schedule
 import time
-API_KEY = api.quotes
+API_KEY ='5758248073:AAHhRY67sCd7wDIbwTtJo6YMRNQFQfiE9dU'
 bot = telebot.TeleBot(API_KEY)
 channel = "@Quotes4_life"
 channel2 = "@eyobmekonneny"
