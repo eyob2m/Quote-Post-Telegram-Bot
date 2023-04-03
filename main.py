@@ -1,7 +1,7 @@
 from PIL import Image,ImageFont,ImageDraw
 image = Image.open("demo.jpg")
 import textwrap
-
+import random
 font = ImageFont.truetype("mine.TTF",60)
 draw = ImageDraw.Draw(image)
 fontlogo = ImageFont.truetype("mine.TTF",60)
@@ -29,9 +29,13 @@ def post():
     text = str(j)
 
     para = textwrap.wrap(j, width=15)
-    
+    red = random.randint(0,255)
+    blue = random.randint(0,255)
+    green = random.randint(0,255)
     MAX_W, MAX_H = 2000, 2000
-    image = Image.new('RGB', (MAX_W, MAX_H), (0, 0, 0, 0))
+    image = Image.new('RGB', (MAX_W, MAX_H), (red, green, blue, 0))
+
+ 
     draw = ImageDraw.Draw(image)
     font = ImageFont.truetype("mine.TTF", 180)
     
