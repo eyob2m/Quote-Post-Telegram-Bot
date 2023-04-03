@@ -4,7 +4,7 @@ import textwrap
 import random
 font = ImageFont.truetype("mine.TTF",60)
 draw = ImageDraw.Draw(image)
-fontlogo = ImageFont.truetype("mine.TTF",60)
+fontlogo = ImageFont.truetype("mine.TTF",40)
 
 
 
@@ -14,7 +14,7 @@ import requests
 import telebot
 import schedule
 import time
-API_KEY = '5758248073:AAHhRY67sCd7wDIbwTtJo6YMRNQFQfiE9dU'
+API_KEY = file.api
 bot = telebot.TeleBot(API_KEY)
 channel = "@Quotes4_life"
 channel2 = "@eyobmekonneny"
