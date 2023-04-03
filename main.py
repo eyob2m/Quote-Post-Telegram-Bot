@@ -50,4 +50,9 @@ def post():
     bot.send_photo(channel, image, caption=j + '\n\U0001f31a | @Quotes4_life') 
     bot.send_photo(channel2, image, caption=j + '\n\U0001f31a | @Quotes4_life') 
     
-post();
+def p1():
+    schedule.every(120).minutes.until("19:00").do(post)
+schedule.every().day.at("04:00").do(p1)
+while True:
+    schedule.run_pending()
+    time.sleep(1)
